@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过控制器加载User模块</title>
+
+    <script>
+        function jump() {
+            window.location = "/thinkphp/index.php/User/add";
+        }
+    </script>
+
+</head>
+<!--   __URL__ 表示当前模块路径   -->
+<body>
+    <table border="1" width="500px" align="center">
+        <tr>
+            <td>索引</td>
+            <td>用户名</td>
+            <td>性别</td>
+            <td>操作</td>
+        </tr>
+        <volist name="data" id="list">
+            <tr>
+                <td>{$list.id}</td>
+                <td>{$list.username}</td>
+                <td>{$list.sex}</td>
+                <td><a href="__URL__/del/id/{$list.id}">删除</a>| <a href="/thinkphp/index.php/User/modify/id/{$list.id}">修改</a></td>
+            </tr>
+        </volist>
+
+
+    </table>
+
+    <center>
+        <button onclick="jump()">添加数据</button>
+    </center>
+</body>
+</html>
